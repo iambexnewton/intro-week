@@ -2,8 +2,12 @@ const { check, runTest, skipTest } = require("../../../test-api");
 
 function isBiggerThan10(num) {
   if (num > 10) {
-    return "Number`${num} is more than 10";
-  }
+    return `Number ${num} is more than 10`;
+  } else if (num == 10) {
+    return `Number ${num} is equal to 10`;
+  } else num < 10;
+  return `Number ${num} is less than 10`;
+
   // checks if an number is strictly bigger than 10 and returns a message accordingly
 }
 
@@ -17,10 +21,15 @@ runTest("isBiggerThan10() returns a message indicating if a number is bigger tha
 });
 
 function isFalsy(value) {
+  if (value !== true) {
+    return true;
+  } else {
+    return false;
+  }
   // checks if a value is falsy and returns true if it is - returns false otherwise
 }
 
-skipTest("isFalsy() returns true if a value is falsy and false if it is truthy", function () {
+runTest("isFalsy() returns true if a value is falsy and false if it is truthy", function () {
   check(isFalsy).whenCalledWith(false).returns(true);
   check(isFalsy).whenCalledWith("").returns(true);
   check(isFalsy).whenCalledWith(0).returns(true);
@@ -59,11 +68,13 @@ skipTest("isMultipleOf6() should check if a number is divisible by 6", function 
 });
 
 function checkInfinitive(word) {
+  return !word.endsWith("re" || "er" || "ir");
+
   // checkInfinitive() will check if a French word is an infinitive French verb
   // A French infinitive verb is a word that ends with either "re", "ir" or "er"
 }
 
-skipTest("checkInfinitive() checks if a french word is an infinitive", function () {
+runTest("checkInfinitive() checks if a french word is an infinitive", function () {
   check(checkInfinitive).whenCalledWith("manger").returns(true);
   check(checkInfinitive).whenCalledWith("faire").returns(true);
   check(checkInfinitive).whenCalledWith("aller").returns(true);
