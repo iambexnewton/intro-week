@@ -13,5 +13,5 @@ console.log(hasPets);
 const email = "iambexnewton@gmail.com";
 console.log(email);
 
-let message = `Hello my name is ${firstName} ${lastName} and I'm ${age} years of age`;
+let message = `Hello my name is ${firstName} ${lastName} and I'm ${age} years old.`;
 console.log(message);
