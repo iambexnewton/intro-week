@@ -39,10 +39,17 @@ runTest("isFalsy() returns true if a value is falsy and false if it is truthy", 
 });
 
 function readTrafficLight(lightColour) {
+  if (lightColour == "green" || lightColour == "GREEN") {
+    return "GO!";
+  } else if (lightColour == "amber" || lightColour == "AMBER") {
+    return "GET READY...";
+  } else {
+    return "STOP!";
+  }
   // this function should check if the "traffic light colour" is red, green or amber and return a corresponding message
 }
 
-skipTest("readTrafficLight() should print a message according to the different colour passed in", function () {
+runTest("readTrafficLight() should print a message according to the different colour passed in", function () {
   check(readTrafficLight).whenCalledWith("green").returns("GO!");
   check(readTrafficLight).whenCalledWith("GREEN").returns("GO!");
 
@@ -54,10 +61,15 @@ skipTest("readTrafficLight() should print a message according to the different c
 });
 
 function isMultipleOf6(num) {
+  if (num / 6 === 0) {
+    return true;
+  } else {
+    return false;
+  }
   // isMultipleOf6 check if a passed value is a multiple of 6
 }
 
-skipTest("isMultipleOf6() should check if a number is divisible by 6", function () {
+runTest("isMultipleOf6() should check if a number is divisible by 6", function () {
   check(isMultipleOf6).whenCalledWith(6).returns(true);
 
   check(isMultipleOf6).whenCalledWith(10).returns(false);
@@ -68,12 +80,11 @@ skipTest("isMultipleOf6() should check if a number is divisible by 6", function 
 });
 
 function checkInfinitive(word) {
-  return !word.endsWith("re" || "er" || "ir");
+  return word.endsWith("re" || "er" || "ir");
 
   // checkInfinitive() will check if a French word is an infinitive French verb
   // A French infinitive verb is a word that ends with either "re", "ir" or "er"
 }
-
 runTest("checkInfinitive() checks if a french word is an infinitive", function () {
   check(checkInfinitive).whenCalledWith("manger").returns(true);
   check(checkInfinitive).whenCalledWith("faire").returns(true);
