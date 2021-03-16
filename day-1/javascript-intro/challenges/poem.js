@@ -4,20 +4,20 @@
 // https://poets.org/poem/do-not-go-gentle-good-night
 
 console.log(
-  "Do not go gentle into that good night,Old age should burn and rage at close of day;Rage, rage against the dying of the light"
+  "Do not go gentle into that good night,\nOld age should burn and rage at close of day;\nRage, rage against the dying of the light"
 );
 console.log(
-  "Though wise men at their end know dark is right,Because their words had forked no lightning theyDo not go gentle into that good night."
+  "Though wise men at their end know dark is right,\nBecause their words had forked no lightning they\nDo not go gentle into that good night."
 );
 console.log(
-  "Good men, the last wave by, crying how brightTheir frail deeds might have danced in a green bay,Rage, rage against the dying of the light."
+  "Good men, the last wave by,\ncrying how bright\nTheir frail deeds might have\ndanced in a green bay,\nRage, rage against the dying of \nthe light."
 );
 console.log(
-  "Wild men who caught and sang the sun in flight,And learn, too late, they grieved it on its way,Do not go gentle into that good night."
+  "Wild men who caught and sang\nthe sun in flight,\nAnd learn, too late, they grieved\nt on its way,\nDo not go gentle into that good\nnight."
 );
 console.log(
-  "Grave men, near death, who see with blinding sightBlind eyes could blaze like meteors and be gay,Rage, rage against the dying of the light."
+  "Grave men, near death, who see\nwith blinding sight\nBlind eyes could blaze like \nmeteors and be gay,\nRage, rage against the dying of\nthe light."
 );
 console.log(
-  "And you, my father, there on the sad height,Curse, bless me now with your fierce tears, I pray.Do not go gentle into that good night.Rage, rage against the dying of the light."
+  "And you, my father, there on the \nsad height,\nCurse, bless me now with your \nfierce tears, I pray.\nDo not go gentle into that good \nnight.Rage, rage against the dying of \nthe light."
 );
