@@ -1,6 +1,9 @@
 const { check, runTest, skipTest } = require("../../../test-api");
 
 function isBiggerThan10(num) {
+  if (num > 10) {
+    return "Number`${num} is more than 10";
+  }
   // checks if an number is strictly bigger than 10 and returns a message accordingly
 }
 

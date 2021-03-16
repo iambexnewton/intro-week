@@ -1,6 +1,7 @@
 try {
   const name = "jonny";
-  name.push("apple");
+  const lastName = "apple";
 } catch (error) {
   console.log(error);
 }
+//TypeError: name.push is not a function

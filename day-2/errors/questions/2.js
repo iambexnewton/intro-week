@@ -1,6 +1,6 @@
 try {
-  const name = "mitch";
-  name = "Izzi";
+  let name = "mitch";
+  name = "Izzi"; //TypeError: Assignment to constant variable. changed const to let
 } catch (error) {
   console.log(error);
 }
