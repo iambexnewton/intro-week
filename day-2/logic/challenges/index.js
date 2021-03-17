@@ -61,7 +61,7 @@ runTest("readTrafficLight() should print a message according to the different co
 });
 
 function isMultipleOf6(num) {
-  if (num / 6 === 0) {
+  if (num % 6 === 0) {
     return true;
   } else {
     return false;
@@ -80,7 +80,9 @@ runTest("isMultipleOf6() should check if a number is divisible by 6", function (
 });
 
 function checkInfinitive(word) {
-  return word.endsWith("re" || "er" || "ir");
+  if (word.endsWith("er")) {
+    return true;
+  }
 
   // checkInfinitive() will check if a French word is an infinitive French verb
   // A French infinitive verb is a word that ends with either "re", "ir" or "er"

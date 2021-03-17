@@ -1,6 +1,8 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
 function capitaliseString(string) {
+  return string.toUpperCase();
+
   // return the passed string as upper case
 }
 

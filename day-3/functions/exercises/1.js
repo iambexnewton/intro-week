@@ -1,6 +1,7 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
-function getLength() {
+function getLength(str) {
+  return str.length;
   // return the length of the passed string
 }
 
