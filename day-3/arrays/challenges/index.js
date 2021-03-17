@@ -1,7 +1,9 @@
 const { check, runTest, skipTest } = require("../../../test-api");
 
 // Declare each of the functions below and run their tests - and then get those tests passing :)
-
+function getLastItem(item) {
+  return item[item.length - 1];
+}
 // getLastItem() should return the last item from an array
 
 runTest("getLastItem() returns the last item in an array", function () {
@@ -9,25 +11,39 @@ runTest("getLastItem() returns the last item in an array", function () {
   check(getLastItem).whenCalledWith(["apple", "banana", "pear", "kiwi"]).returns("kiwi");
 });
 
-// getLastNItems() return an array with the last n items of the array
+function getLastNItems(item, n) {
+  if (n === 0) {
+    return [];
+  } else {
+    return item.slice(-n);
+  }
 
-skipTest("getLastNItems() returns the last n items in an array", function () {
+  // getLastNItems() return an array with the last n items of the array
+}
+runTest("getLastNItems() returns the last n items in an array", function () {
   check(getLastNItems).whenCalledWith(["a", "b", "c", "d"], 2).returns(["c", "d"]);
   check(getLastNItems).whenCalledWith(["apple", "banana", "pear", "kiwi"], 0).returns([]);
   check(getLastNItems).whenCalledWith(["apple", "banana", "pear", "kiwi"], 3).returns(["banana", "pear", "kiwi"]);
 });
 
+function removeItem(array, index) {
+  let newArray = array.splice(index, 1);
+  return array;
+}
 // removeItem() returns a new array without the item on position 'n', effectively removing it from the array
 
-skipTest("removeItem() removes an item at a given index", function () {
+runTest("removeItem() removes an item at a given index", function () {
   check(removeItem).whenCalledWith(["a", "b", "c", "d"], 2).returns(["a", "b", "d"]);
   check(removeItem).whenCalledWith(["a", "b", "c", "d"], 0).returns(["b", "c", "d"]);
   check(removeItem).whenCalledWith(["a", "b", "c", "d"], 1).returns(["a", "c", "d"]);
 });
 
+function mergeArrays(array1, array2) {
+  return array1.concat(array2);
+}
 // mergeArrays() returns a new array containing all of arr1 and arr2's elements
 
-skipTest("mergeArrays() will concatenate two arrays together", function () {
+runTest("mergeArrays() will concatenate two arrays together", function () {
   check(mergeArrays).whenCalledWith(["a", "b"], ["c", "d"]).returns(["a", "b", "c", "d"]);
   check(mergeArrays).whenCalledWith([1], [3, 5, 7]).returns([1, 3, 5, 7]);
   check(mergeArrays).whenCalledWith(["x", "y", "z"], [1, 2, 3, 4]).returns(["x", "y", "z", 1, 2, 3, 4]);
@@ -35,16 +51,28 @@ skipTest("mergeArrays() will concatenate two arrays together", function () {
 
 // if an array is like a sandwich, the first and last items are the bread
 // getSandwichFilling() should return an array with the filling of the sandwich
+function getSandwichFilling(sandwich) {
+  var popped = sandwich.pop();
+  var shifted = sandwich.shift();
+  return sandwich;
+}
 
-skipTest("getSandwichFilling() returns the inner elements of an array", function () {
+runTest("getSandwichFilling() returns the inner elements of an array", function () {
   check(getSandwichFilling).whenCalledWith(["a", "b", "c", "d"]).returns(["b", "c"]);
   check(getSandwichFilling).whenCalledWith([10, 20, 30, 40, 50, 60]).returns([20, 30, 40, 50]);
   check(getSandwichFilling).whenCalledWith(["northcoders", "are", "the", "best"]).returns(["are", "the"]);
 });
 
+function isEmptyArray(array) {
+  if (array.length < 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
 // isEmptyArray() should return a boolean checking if an array is empty
 
-skipTest("isEmptyArray() checks if an array is empty", function () {
+runTest("isEmptyArray() checks if an array is empty", function () {
   check(isEmptyArray).whenCalledWith([]).returns(true);
   check(isEmptyArray).whenCalledWith(["a", "b", "c", "d"]).returns(false);
   check(isEmptyArray).whenCalledWith(["a"]).returns(false);

@@ -156,6 +156,21 @@ try {
 
 // declare getMiddle here
 
+const getMiddle = (str) => {
+  var position;
+  var length;
+
+  if (str.length % 2 == 1) {
+    position = str.length / 2;
+    length = 1;
+  } else {
+    position = str.length / 2 - 1;
+    length = 2;
+  }
+  return str.substring(position, position + length);
+  // return the middle (or middle two) character(s) of the passed string
+};
+
 // return the middle (or middle two) character(s) of the passed string
 // HINT: You could use the ternary operator for this challenge
 
@@ -182,6 +197,10 @@ try {
 }
 
 // declare getCharCode here
+function getCharCode(char) {
+  let ascii = char.charCodeAt(char);
+  return `The ASCII character for ${char} is ${ascii}`;
+}
 
 // returns a sentence stating the character code for a given character
 // Look up ASCII online to get a better idea of what a character code is
@@ -227,7 +246,8 @@ try {
 
 // declare extractNumber here
 function extractNumber(string) {
-  return string.match(/\d+/g);
+  let newString = string.match(/\d+/g);
+  return parseInt(newString);
 }
 // should extract a number embedded in a string surrounded by ( ) parentheses
 
