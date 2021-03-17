@@ -1,8 +1,7 @@
 const { check, printGreenMessage, printRedMessage } = require("../../../test-api");
 
-function modulo() {
-  // return the remainder of the division a / b
-}
+const modulo = (a, b) => a % b;
+// return the remainder of the division a / b
 
 console.log("modulo() gives the correct output");
 try {
@@ -16,9 +15,8 @@ try {
   printRedMessage(error);
 }
 
-function squareRoot() {
-  // return the square root of n
-}
+const squareRoot = (n) => Math.sqrt(n);
+// return the square root of n
 
 console.log("squareRoot() works for positive integers");
 
@@ -33,9 +31,8 @@ try {
   printRedMessage(error);
 }
 
-function raiseToPower() {
-  // return the result of raising m to the nth power
-}
+const raiseToPower = (m, n) => Math.pow(m, n);
+// return the result of raising m to the nth power
 
 console.log("raiseToPower() raises given number to a power");
 try {
@@ -50,6 +47,7 @@ try {
 }
 
 // declare capitaliseFirstLetter here
+const capitaliseFirstLetter = (str) => str[0].toUpperCase() + str.slice(1);
 
 console.log("capitaliseFirstLetter() can capitalise the first letter in a string");
 try {
@@ -64,6 +62,7 @@ try {
 }
 
 // declare areValuesEqual here
+const areValuesEqual = (left, right) => left === right;
 
 // return true if the passed arguments are strictly equal
 // you can complete this problem without resorting to if statements
@@ -80,6 +79,13 @@ try {
 }
 
 // declare isFromThe60s here
+function isFromThe60s(year) {
+  if (year > 1959 && year <= 1969) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // return true if the year is in the 1960's
 // returns false otherwise
@@ -102,6 +108,13 @@ try {
 }
 
 // declare isEvenLength here
+function isEvenLength(string) {
+  if (string.length % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // return true if string has an even length
 // you can complete this problem without resorting to if statements
@@ -118,7 +131,13 @@ try {
 }
 
 // declare isAbsolutePath here
-
+function isAbsolutePath(path) {
+  if (path[0] === "/") {
+    return true;
+  } else {
+    return false;
+  }
+}
 // checks if a string is an absolute path - does it start with a /
 // HINT: all absolute file paths start with a /
 
@@ -185,7 +204,10 @@ try {
 }
 
 // declare createPercentage here
-
+function createPercentage(num1, num2) {
+  var answer = Math.round((num1 / num2) * 100);
+  return `${answer}%`;
+}
 // should take 2 numbers and work out their percentage
 
 console.log('createPercentage() creates a percentage string in the form "--%"');
@@ -204,7 +226,9 @@ try {
 }
 
 // declare extractNumber here
-
+function extractNumber(string) {
+  return string.match(/\d+/g);
+}
 // should extract a number embedded in a string surrounded by ( ) parentheses
 
 console.log("extractNumber() should return the number buried inside a string");
