@@ -80,8 +80,11 @@ runTest("isEmptyArray() checks if an array is empty", function () {
 
 // howManyArguments() should return the number of arguments passed into the function
 // HINT: For this one you should look at notes.md
+function howManyArguments(args) {
+  return arguments.length;
+}
 
-skipTest("howManyArguments() returns the number of items passed on a single call", function () {
+runTest("howManyArguments() returns the number of items passed on a single call", function () {
   check(howManyArguments).whenCalledWith("a", "b", "c").returns(3);
   check(howManyArguments).whenCalledWith().returns(0);
   check(howManyArguments).whenCalledWith(1, 2, 3, 4, 5).returns(5);
