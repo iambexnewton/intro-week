@@ -5,3 +5,4 @@
 const meaningOfLife = 42;
 
 meaningOfLife();
+//TypeError: meaningOfLife is not a function
