@@ -1,31 +1,46 @@
 const { check, runTest, skipTest } = require("../../../test-api");
 
 // accessObject() should take an object and a key and return the object's property value
-
+function accessObject(object, value) {
+  return object[value];
+}
 runTest("accessObject() can access a property value using a key", function () {
   check(accessObject).whenCalledWith({ name: "jonny", age: 32 }, "name").returns("jonny");
   check(accessObject).whenCalledWith({ name: "jonny", age: 32 }, "age").returns(32);
 });
 
 // checkIfPropertyExists() should take an object and a key and return a boolean that indicates whether or not the object has the given keys
+function checkIfPropertyExists(obj, key) {
+  return obj.hasOwnProperty(key);
+}
 
-skipTest("checkIfPropertyExists() checks if a property exists inside an object", function () {
+runTest("checkIfPropertyExists() checks if a property exists inside an object", function () {
   check(checkIfPropertyExists).whenCalledWith({ name: "jonny", age: 32 }, "name").returns(true);
   check(checkIfPropertyExists).whenCalledWith({ name: "jonny", age: 32 }, "age").returns(true);
   check(checkIfPropertyExists).whenCalledWith({ name: "jonny", age: 32 }, "pets").returns(false);
 });
 
 // createObject() should take a key-value pair (stored in an array) and use it to create an object with a key and a value
+function createObject(arr) {
+  const object = {};
+  object[arr[0]] = arr[1];
 
-skipTest("createObject() creates a new object from a key value pair", function () {
+  return object;
+}
+
+runTest("createObject() creates a new object from a key value pair", function () {
   check(createObject).whenCalledWith(["name", "shaq"]).returns({ name: "shaq" });
   check(createObject).whenCalledWith(["fruit", "apple"]).returns({ fruit: "apple" });
   check(createObject).whenCalledWith(["language", "haskell"]).returns({ language: "haskell" });
 });
 
 // countProperties() should take an object and count the number of properties it has
+function countProperties(object) {
+  const objKeys = Object.keys(object);
+  return objKeys.length;
+}
 
-skipTest("countProperties() counts the number of key-value pairs for a given object", function () {
+runTest("countProperties() counts the number of key-value pairs for a given object", function () {
   check(countProperties).whenCalledWith({}).returns(0);
   check(countProperties).whenCalledWith({ name: "shaq" }).returns(1);
   check(countProperties).whenCalledWith({ name: "shaq", job: "tutor", city: "Manchester" }).returns(3);
@@ -56,7 +71,7 @@ skipTest("createArrow() will return an arrow pointing in the right direction", f
 //    Note - The function does NOT need to return anything.
 //
 
-skipTest("updateVoterAddress() updates the voter's houseNumber", function () {
+runTest("updateVoterAddress() updates the voter's houseNumber", function () {
   const voter = {
     name: "Alex",
     age: 39,
