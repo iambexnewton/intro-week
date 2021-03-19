@@ -3,43 +3,55 @@ const { check, runTest, skipTest } = require("../../../test-api");
 runTest("get the multiples of 10 from 10 to 100", function () {
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const multiplesOf10 = USE_ARRAY_METHOD;
+  const multiplesOf10 = items.map((item) => item * 10);
 
   check(multiplesOf10).isEqualTo([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
 });
 
-skipTest("adds ? to the words in order to form queries", function () {
+runTest("adds ? to the words in order to form queries", function () {
   const words = ["who", "what", "why", "how", "huh"];
 
-  const queries = USE_ARRAY_METHOD;
+  const queries = words.forEach(function (word) {
+    word + "?";
+  });
+  return queries;
 
   check(queries).isEqualTo(["who?", "what?", "why?", "how?", "huh?"]);
 });
 
-skipTest("will get the name and ages of each person in an array", function () {
+runTest("will get the name and ages of each person in an array", function () {
   const people = [
     { name: "mitch", age: 30 },
     { name: "anat", age: 24 },
     { name: "howard", age: 58 },
   ];
 
-  const namesAndAges = USE_ARRAY_METHOD;
+  const namesAndAges = [];
+
+  people.map((item) => {
+    namesAndAges.push(`${item.name} - ${item.age}`);
+  });
 
   check(namesAndAges).isEqualTo(["mitch - 30", "anat - 24", "howard - 58"]);
 });
 
-skipTest("can get the multiples of 3", function () {
+runTest("can get the multiples of 3", function () {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-  const multiplesOf3 = USE_ARRAY_METHOD;
-
+  const multiplesOf3 = nums.filter(function (number) {
+    if (number % 3 === 0) {
+      return number;
+    }
+  });
   check(multiplesOf3).isEqualTo([3, 6, 9, 12, 15, 18]);
 });
 
 skipTest("can get all the words ending in er", function () {
   const words = ["boulder", "wonder", "hello", "hi", "super", "something", "whoa", "booo"];
 
-  const wordsEndingInEr = USE_ARRAY_METHOD;
+  //const wordsEndingInEr = words.filter(word){
+  //if  word
+  //}
 
   check(wordsEndingInEr).isEqualTo(["boulder", "wonder", "super"]);
 });
@@ -76,10 +88,9 @@ skipTest("can sum numbers in a list using forEach()", function () {
   check(sum).isEqualTo(120);
 });
 
-skipTest("can find the index position of X", function () {
+runTest("can find the index position of X", function () {
   const treasureMap = "adhfashasoasduyoaisyioyadiyfoXsasdiyoiaysidyoiaysfi";
-
-  const positionOfX = USE_ARRAY_METHOD;
+  return treasureMap.indexOf(X);
   // Look at different array methods on MDN or dev docs and try finding the best one for the job
   check(positionOfX).isEqualTo(29);
 });
