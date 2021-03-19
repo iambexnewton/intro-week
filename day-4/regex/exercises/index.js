@@ -74,7 +74,7 @@ runTest("Exercise 3", function () {
   // You should look up regex anchors for this exercise !
 
   function testExact6ABCs(str) {
-    return /(a|b|c){6,}/.test(str);
+    return /^[a-c]{6}$/.test(str);
   }
 
   check(testExact6ABCs).whenCalledWith("abcabc").returns(true);
@@ -90,13 +90,13 @@ runTest("Exercise 3", function () {
   check(testExact6ABCs).whenCalledWith("abca").returns(false);
 });
 
-skipTest("Exercise 4", function () {
+runTest("Exercise 4", function () {
   // Replace YOUR_REGEX_HERE with a regular expression
 
   // Your pattern should match any string containing exactly 2 consecutive letter ls
 
   function testExact2ConsecutivesLs(str) {
-    return YOUR_REGEX_HERE.test(str);
+    return /[^l]l{2}[^l]/g.test(str);
   }
 
   check(testExact2ConsecutivesLs).whenCalledWith("hello").returns(true);
